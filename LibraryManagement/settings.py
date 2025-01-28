@@ -41,8 +41,10 @@ ALLOWED_HOSTS = []
 
 # Application definition
 # add LibraryAPI
+# Add rest_framework
 INSTALLED_APPS = [
     'LibraryAPI',
+    'rest_framework',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
