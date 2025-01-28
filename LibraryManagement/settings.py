@@ -135,3 +135,16 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# implement rate limiting with Django's built-in throttling capabilities
+# https://www.django-rest-framework.org/api-guide/throttling/#setting-the-throttling-policy
+# no authentication required so use AnonRateThrottle
+# https://www.django-rest-framework.org/api-guide/throttling/#anonratethrottle
+REST_FRAMEWORK = {
+    'DEFAULT_THROTTLE_CLASSES': [
+        'rest_framework.throttling.AnonRateThrottle',        
+    ],
+    'DEFAULT_THROTTLE_RATES': {
+        'anon': '100/hour',        
+    }
+}
