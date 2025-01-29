@@ -140,11 +140,16 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # https://www.django-rest-framework.org/api-guide/throttling/#setting-the-throttling-policy
 # no authentication required so use AnonRateThrottle
 # https://www.django-rest-framework.org/api-guide/throttling/#anonratethrottle
+# set the pagination style globally
+# https://www.django-rest-framework.org/api-guide/pagination/#setting-the-pagination-style
+# https://www.django-rest-framework.org/api-guide/pagination/#setup
 REST_FRAMEWORK = {
     'DEFAULT_THROTTLE_CLASSES': [
         'rest_framework.throttling.AnonRateThrottle',        
     ],
     'DEFAULT_THROTTLE_RATES': {
         'anon': '100/hour',        
-    }
+    },
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 10
 }
