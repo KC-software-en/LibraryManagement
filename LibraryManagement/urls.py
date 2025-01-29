@@ -15,14 +15,18 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-# import include
-from django.urls import path, include
+
+# import include & re_path
+from django.urls import path, include, re_path
 
 ##################################################################
 
 # add a path to the app urls
-# use an empty str to set the homepage of the project
+# match URLs starting with 'api/' followed by version
+# - capture 'v1' & store it in the parameter called 'version'
+# - needed for URLPathVersioning to ID API version
+# https://www.django-rest-framework.org/api-guide/versioning/#urlpathversioning
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('LibraryAPI.urls')),
+    re_path(r'^api/(?P<version>(v1))/', include('LibraryAPI.urls')), # have to explicitly define which versions are allowed
 ]
