@@ -143,6 +143,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # set the pagination style globally
 # https://www.django-rest-framework.org/api-guide/pagination/#setting-the-pagination-style
 # https://www.django-rest-framework.org/api-guide/pagination/#setup
+# add versioning globally
+# https://www.django-rest-framework.org/api-guide/versioning/#configuring-the-versioning-scheme
+# https://www.django-rest-framework.org/api-guide/versioning/#other-versioning-settings
 REST_FRAMEWORK = {
     'DEFAULT_THROTTLE_CLASSES': [
         'rest_framework.throttling.AnonRateThrottle',        
@@ -151,5 +154,9 @@ REST_FRAMEWORK = {
         'anon': '100/hour',        
     },
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
-    'PAGE_SIZE': 10
+    'PAGE_SIZE': 10,
+    'DEFAULT_VERSIONING_CLASS': 'rest_framework.versioning.URLPathVersioning', # request.version should return 1
+    'DEFAULT_VERSION': '1', # DRF expects version numbers without prefixes e.g. 'v', else it would duplicate into /api/vv1/
+    'ALLOWED_VERSIONS': ['1'],
+    'VERSION_PARAM': 'version',
 }
