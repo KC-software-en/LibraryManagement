@@ -21,7 +21,7 @@ from .serializers import BookSerializer
 
 # A ViewSet class is simply a type of class-based View, that does not provide any method handlers such as .get() or .post(),
 # and instead provides actions such as .list() and .create()
-# bind actions when finalising view, using the .as_view() method
+# https://www.django-rest-framework.org/api-guide/viewsets/#modelviewset
 # register the viewset with a router class, that automatically determines the urlconf
 class BookViewSet(ModelViewSet):
     # define a queryset that allows access to all Book objects using all() method
