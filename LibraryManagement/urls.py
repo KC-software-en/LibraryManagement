@@ -15,8 +15,14 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+# import include
+from django.urls import path, include
 
+##################################################################
+
+# add a path to the app urls
+# use an empty str to set the homepage of the project
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', include('LibraryAPI.urls')),
 ]
