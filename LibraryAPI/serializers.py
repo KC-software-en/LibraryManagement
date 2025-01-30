@@ -27,7 +27,7 @@ class BookSerializer(serializers.ModelSerializer):
         extra_kwargs = {
             field: {"required": True} for field in fields
             }
-
+    
         # validate that the author & title combination is unique
         # https://www.django-rest-framework.org/api-guide/validators/#uniquetogethervalidator
         validators = [
@@ -64,3 +64,4 @@ class BookSerializer(serializers.ModelSerializer):
         if value > date.today():
             raise serializers.ValidationError("Published date must be before or equal to today's date.")
         return value
+    
