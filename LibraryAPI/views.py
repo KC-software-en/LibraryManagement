@@ -33,6 +33,19 @@ class BookViewSet(ModelViewSet):
     def list(self, request, *args, **kwargs):
         # get the queryset of all Book objects
         queryset = self.get_queryset()
+
+        # check if queryset is empty and provide a message
+        # use 200 status instead of 204 since there was a successful request & a message in the Response
+        if not queryset.exists():
+            return Response(
+                {"status": "success",
+                "code": 200,
+                "message": "There are no Books in the library",
+                "data": []
+                },
+                status=status.HTTP_200_OK,
+                )
+
         # serialize the queryset using the serializer class
         serializer = self.get_serializer(queryset, many=True)
         # return a response with the serialized data
