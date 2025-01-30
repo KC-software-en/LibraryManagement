@@ -136,6 +136,16 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# set up cache for throttling
+# https://www.django-rest-framework.org/api-guide/throttling/#setting-up-the-cache
+# https://docs.djangoproject.com/en/5.1/ref/settings/#caches
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+        'LOCATION': 'unique-snowflake',
+    }
+}
+
 # implement rate limiting with Django's built-in throttling capabilities
 # https://www.django-rest-framework.org/api-guide/throttling/#setting-the-throttling-policy
 # no authentication required so use AnonRateThrottle
