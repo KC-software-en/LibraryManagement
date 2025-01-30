@@ -149,6 +149,9 @@ class BookViewSet(ModelViewSet):
             )
 
     # override the update method to handle PUT requests with a custom message
+    # PUT replaces existing resource, ensuring sending the same data does not create duplicates
+    # - DRF validates incoming request against the serializer, preventing unintended updates
+    # - thus idempotent: the response is consistent for the same request sent multiple times
     def update(self, request, *args, **kwargs):
         # determine if the client wants a full (PUT) or partial (PATCH) update
         # partial will be True for PATCH and False for PUT
