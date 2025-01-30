@@ -23,6 +23,11 @@ class BookSerializer(serializers.ModelSerializer):
         model = Book
         fields = '__all__'    
 
+        # ensure all fields are required when creating a new book with POST
+        extra_kwargs = {
+            field: {"required": True} for field in fields
+            }
+
         # validate that the author & title combination is unique
         # https://www.django-rest-framework.org/api-guide/validators/#uniquetogethervalidator
         validators = [
