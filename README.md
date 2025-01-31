@@ -93,6 +93,8 @@ In the Command Prompt:
 
 **Deploy LibraryManagement to PythonAnyWhere**
 
+*You can also follow the resource [here](https://help.pythonanywhere.com/pages/DeployExistingDjangoProject).*
+
 1. Go to your Github repo settings -> Secrets and Variables -> Click on "New repository secret."
 1. Copy the production secret key that can be generated with the get_random_secret_key mentioned earlier.
 
@@ -128,25 +130,39 @@ In the Command Prompt:
     1. Follow the WSGI configuration file link under the Code section of the web tab.
     1. Follow instructions to edit the WSGI file, save and reload at the top of the page.
 1. Go to console tab
-1. Click on bash , 
+1. Click on bash 
 1. Activate virtual environment: `workon LibraryVenv`    
 1. Run migrations in project directory: `python manage.py migrate`
+1. Configure static with [this](https://help.pythonanywhere.com/pages/DjangoStaticFiles).
+1. Install whitenoise: `pip install whitenoise`
+    1. Add it's configuration in settings.py:
+        + STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+    1. Add it to middleware in settings.py, under security        
+        + MIDDLEWARE = [
+            ...,
+            'whitenoise.middleware.WhiteNoiseMiddleware',
+            ...
+        ]
 
 1. Open your app with the link available on your dashboard.
 
 **How to perform CRUD operations**
 1. At https://kcswe.pythonanywhere.com/api/v1/books/:
     + GET → list (gets all books)
+
     + POST → create (creates a new book)
 
 1. At https://kcswe.pythonanywhere.com/api/v1/books/<id>/:
     + GET → retrieve (gets a single book)
+
     + PUT → update (full update on a book)
         + click on html form
+
     + PATCH → partial update
         + click on raw data, 
         + select JSON as ghe media type
         + in content box only send the dictionary items you want to update e.g. content {"availability": false} then click PATCH
+
     + DELETE → destroy the book item    
 
 **Testing API on Postman**    
@@ -176,8 +192,20 @@ LibraryManagement was deployed with PythonAnyWhere and is available [here](https
 
 **Django REST Framework**
 
++ https://restfulapi.net/resource-naming/
++ https://stackoverflow.blog/2020/03/02/best-practices-for-rest-api-design/
++ https://cloud.google.com/apis/design
++ https://www.django-rest-framework.org/
++ https://medium.com/@zenbgs/how-to-create-a-rest-api-with-django-rest-framework-b7289af2fc0d
 
 **Deploy to PythonAnyWhere**
 
++ https://help.pythonanywhere.com/pages/DeployExistingDjangoProject
++ https://help.pythonanywhere.com/pages/DjangoStaticFiles
+
 **Postman**
 
++ https://learning.postman.com/docs/publishing-your-api/documenting-your-api/
++ https://www.bing.com/videos/riverview/relatedvideo?q=how+to+use+postman+to+test+api+on+localhost&&view=riverview&mmscn=mtsc&mid=392F6CC80A0BD2845DAC392F6CC80A0BD2845DAC&&aps=0&mcid=3B2CBF61816F481689604929BFEF79AF&FORM=VMSOVR
++ https://www.bing.com/videos/riverview/relatedvideo?&q=do+you+need+to+deploy+your+api+before+documenting+it+on+postman&&mid=63F22094AB693B942C6C63F22094AB693B942C6C&&mcid=851B26BC0F2B46FFB6D560426E60C0A6&FORM=VRDGAR
++ https://www.bing.com/videos/riverview/relatedvideo?q=how+to+add+documentation+in+postman+vs+code+extension&&view=riverview&mmscn=mtsc&mid=6E7BFA0AE629E256C9F46E7BFA0AE629E256C9F4&&aps=0&mcid=87068D106FA0450CA1BC9FAC0181E752&FORM=VMSOVR
