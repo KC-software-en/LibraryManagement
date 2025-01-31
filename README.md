@@ -111,7 +111,7 @@ In the Command Prompt:
 1. Go to your Github repo settings -> Secrets and Variables -> Click on "New repository secret."
 1. Copy the production secret key that can be generated with the get_random_secret_key mentioned earlier.
 
-1. Create an [PythonAnyWhere](https://www.pythonanywhere.com/pricing/) account.
+1. Create a [PythonAnyWhere](https://www.pythonanywhere.com/pricing/) account.
 1. Choose the Beginner account.
 1. Open a Bash console from your PythonAnyWhere Dashboard.
 1. Clone the Github repository: `git clone https://github.com/KC-software-en/LibraryManagement.git`
@@ -165,7 +165,7 @@ In the Command Prompt:
 
     + POST → create (creates a new book)
 
-1. At https://kcswe.pythonanywhere.com/api/v1/books/<id>/:
+1. At https://kcswe.pythonanywhere.com/api/v1/books/{id}/, replace {id} with the id of the book:
     + GET → retrieve (gets a single book)
 
     + PUT → update (full update on a book)
@@ -173,7 +173,7 @@ In the Command Prompt:
 
     + PATCH → partial update
         + click on raw data, 
-        + select JSON as ghe media type
+        + select JSON as the media type
         + in content box only send the dictionary items you want to update e.g. content {"availability": false} then click PATCH
 
     + DELETE → destroy the book item    
