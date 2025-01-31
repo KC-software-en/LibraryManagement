@@ -9,7 +9,7 @@ LibraryManagement enhances library management by providing a scalable, structure
 
 *What the project does*
 
-The LibraryManagement project develops a RESTful API for managing a library system using Django REST Framework. It includes CRUD operations for books, allowing users to retrieve, add, update, and delete book records. Rate limiting is implemented to prevent abuse, restricting anonymous users to a set number of requests per hour. The API follows RESTful best practices with versioning ('/api/v1/books'), proper status codes, and structured responses. Pagination is applied to large book collections, and headers inform clients about their rate limits. The API is deployed on PythonAnywhere, with thorough documentation and testing via [Postman](https://web.postman.co/workspace/7f74afd9-ffd7-491f-8597-e00bc0c70881/documentation/41687429-f11da102-d0d2-45fb-871c-d29ff79ac0ac).
+The LibraryManagement project develops a RESTful API for managing a library system using Django REST Framework. It includes CRUD operations for books, allowing users to retrieve, add, update, and delete book records. Rate limiting is implemented to prevent abuse, restricting anonymous users to a set number of requests per hour. The API follows RESTful best practices with versioning ('/api/v1/books'), proper status codes, and structured responses. Pagination is applied to large book collections, and headers inform clients about their rate limits. The API is deployed on PythonAnywhere, with thorough documentation and testing via Postman [here](https://web.postman.co/workspace/7f74afd9-ffd7-491f-8597-e00bc0c70881/documentation/41687429-f11da102-d0d2-45fb-871c-d29ff79ac0ac) .
 
 # Installation section
 *Tell other users how to install your project locally*
@@ -147,16 +147,16 @@ In the Command Prompt:
         + click on raw data, 
         + select JSON as ghe media type
         + in content box only send the dictionary items you want to update e.g. content {"availability": false} then click PATCH
-    + DELETE → destroy the book item
-    https://kcswe.pythonanywhere.com/api/v1/books/
+    + DELETE → destroy the book item    
 
 **Testing API on Postman**    
 
 1. Create a Postman account
 1. Download the Postman desktop application
     + or get the Visual Studio Code extension
-
-1. Follow the instructions on Postman published documentation.
+1. Sign in
+1. Follow the instructions on [Postman](https://documenter.getpostman.com/view/41687429/2sAYX3q3FW) published documentation.
+1. Paste the endpoint https://kcswe.pythonanywhere.com/api/v1/books/ in Postman to get you started.
 
 # Credits
 *Highlights and links to the authors of your project if the project has been created by more than one person*
@@ -168,7 +168,7 @@ https://github.com/KC-software-en/LibraryManagement
 
 # Add a url to the LibraryManagement website
 
-Postman [documentation](https://web.postman.co/workspace/7f74afd9-ffd7-491f-8597-e00bc0c70881/documentation/41687429-f11da102-d0d2-45fb-871c-d29ff79ac0ac)
+Postman [documentation](https://documenter.getpostman.com/view/41687429/2sAYX3q3FW)
 
 LibraryManagement was deployed with PythonAnyWhere and is available [here](https://kcswe.pythonanywhere.com/api/v1/books).
 
