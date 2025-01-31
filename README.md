@@ -75,7 +75,9 @@ In the Command Prompt:
     + PUT → update (full update on a book)
         + click on html form
     + PATCH → partial update
-        + click on raw data, in content box only send the dictionary items you want to update e.g. content {"availability": false} then click PATCH
+        + click on raw data, 
+        + select JSON as ghe media type
+        + in content box only send the dictionary items you want to update e.g. content {"availability": false} then click PATCH
     + DELETE → destroy the book item
 
 1. In CMD, stop the server: `CTRL + C`
@@ -131,6 +133,30 @@ In the Command Prompt:
 1. Run migrations in project directory: `python manage.py migrate`
 
 1. Open your app with the link available on your dashboard.
+
+**How to perform CRUD operations**
+1. At https://kcswe.pythonanywhere.com/api/v1/books/:
+    + GET → list (gets all books)
+    + POST → create (creates a new book)
+
+1. At https://kcswe.pythonanywhere.com/api/v1/books/<id>/:
+    + GET → retrieve (gets a single book)
+    + PUT → update (full update on a book)
+        + click on html form
+    + PATCH → partial update
+        + click on raw data, 
+        + select JSON as ghe media type
+        + in content box only send the dictionary items you want to update e.g. content {"availability": false} then click PATCH
+    + DELETE → destroy the book item
+    https://kcswe.pythonanywhere.com/api/v1/books/
+
+**Testing API on Postman**    
+
+1. Create a Postman account
+1. Download the Postman desktop application
+    + or get the Visual Studio Code extension
+
+1. Follow the instructions on Postman published documentation.
 
 # Credits
 *Highlights and links to the authors of your project if the project has been created by more than one person*
