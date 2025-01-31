@@ -9,7 +9,7 @@ LibraryManagement enhances library management by providing a scalable, structure
 
 *What the project does*
 
-The LibraryManagement project develops a RESTful API for managing a library system using Django REST Framework. It includes CRUD operations for books, allowing users to retrieve, add, update, and delete book records. Rate limiting is implemented to prevent abuse, restricting anonymous users to a set number of requests per hour. The API follows RESTful best practices with versioning ('/api/v1/books'), proper status codes, and structured responses. Pagination is applied to large book collections, and headers inform clients about their rate limits. The API is deployed on PythonAnywhere, with thorough documentation and testing via Postman.
+The LibraryManagement project develops a RESTful API for managing a library system using Django REST Framework. It includes CRUD operations for books, allowing users to retrieve, add, update, and delete book records. Rate limiting is implemented to prevent abuse, restricting anonymous users to a set number of requests per hour. The API follows RESTful best practices with versioning ('/api/v1/books'), proper status codes, and structured responses. Pagination is applied to large book collections, and headers inform clients about their rate limits. The API is deployed on PythonAnywhere, with thorough documentation and testing via [Postman](https://web.postman.co/workspace/7f74afd9-ffd7-491f-8597-e00bc0c70881/documentation/41687429-f11da102-d0d2-45fb-871c-d29ff79ac0ac).
 
 # Installation section
 *Tell other users how to install your project locally*
@@ -141,6 +141,8 @@ In the Command Prompt:
 https://github.com/KC-software-en/LibraryManagement
 
 # Add a url to the LibraryManagement website
+
+Postman [documentation](https://web.postman.co/workspace/7f74afd9-ffd7-491f-8597-e00bc0c70881/documentation/41687429-f11da102-d0d2-45fb-871c-d29ff79ac0ac)
 
 LibraryManagement was deployed with PythonAnyWhere and is available [here](https://kcswe.pythonanywhere.com/api/v1/books).
 
