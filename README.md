@@ -86,10 +86,23 @@ In the Command Prompt:
 
 *Include screenshots of your project in action*
 
-![Homepage](screenshots/.png)
-![](screenshots/.png)
-![](screenshots/.png)
-![](screenshots/.png)
+![Homepage](screenshots/library_home_empty_get.png)
+
+![Create](screenshots/create_book.png)
+
+![Get a book](screenshots/fetch_book.png)
+
+![Partial book update request](screenshots/patch_request.png)
+
+![Successful partial book update](screenshots/patch_response.png)
+
+![Get all books](screenshots/fetch_all_books.png)
+
+![Full book update request](screenshots/put_request.png)
+
+![Successful full book update](screenshots/put_response.png)
+
+![Delete book](screenshots/delete_book.png)
 
 **Deploy LibraryManagement to PythonAnyWhere**
 
