@@ -13,7 +13,7 @@ from django.core.cache import cache
 # use view as the parameter to access throttle class configured for that view
 # - to generate the correct cach key
 # - & maintain consistency with DRF's internal patterns
-def fetch_rate_limit_info(request, view): 
+def fetch_rate_limit_info(request, view):
     # get 1st throttle class instance from the view's throttle_classes list
     throttle = view.throttle_classes[0]()
 
@@ -30,13 +30,14 @@ def fetch_rate_limit_info(request, view):
 
     # get the current timestamp
     now = timezone.now()
+    now_ts = now.timestamp()
 
-    # clean old history
-    while history and history[-1] <= now - timedelta(seconds=duration):
+    # clean old history - compare timestamps instead of datetime objects
+    while history and history[-1] <= now_ts - duration:
         history.pop()
 
-    # add current request timestamp to history
-    history.insert(0, now)
+    # add current timestamp to history
+    history.insert(0, now_ts)
 
     # save updated history to cache
     cache.set(key, history, duration)
@@ -45,7 +46,7 @@ def fetch_rate_limit_info(request, view):
     remaining_requests = max(num_of_requests - len(history), 0)
 
     # calculate reset time
-    reset_time = int((now + timedelta(seconds=duration)).timestamp())
+    reset_time = int(now_ts + duration)
 
     # return the rate limit information 
     return {
