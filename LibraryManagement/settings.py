@@ -40,7 +40,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = False
 
 # add the URLs for local host and PythonAnyWhere
-ALLOWED_HOSTS = ["localhost", "KCswe.pythonanywhere.com"]
+ALLOWED_HOSTS = ["localhost", "kcswe.pythonanywhere.com"]
 
 
 # Application definition
