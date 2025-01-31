@@ -34,13 +34,13 @@ if not os.path.exists(os.path.join(BASE_DIR, 'static')):
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # Save secret key in .env file
-SECRET_KEY = os.environ.get('SECRET_KEY')
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 # add the URLs for local host and PythonAnyWhere
-ALLOWED_HOSTS = ["localhost", "kcswe.pythonanywhere.com"]
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "kcswe.pythonanywhere.com"]
 
 
 # Application definition
@@ -136,7 +136,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 # https://help.pythonanywhere.com/pages/DjangoStaticFiles#set-static_root-in-settingspy
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # more places for collectstatic to find static files
 STATICFILES_DIRS = [
@@ -173,10 +173,10 @@ CACHES = {
 # https://www.django-rest-framework.org/api-guide/versioning/#other-versioning-settings
 REST_FRAMEWORK = {
     'DEFAULT_THROTTLE_CLASSES': [
-        'rest_framework.throttling.AnonRateThrottle',        
+        'rest_framework.throttling.AnonRateThrottle',
     ],
     'DEFAULT_THROTTLE_RATES': {
-        'anon': '100/hour',        
+        'anon': '100/hour',
     },
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 10,
