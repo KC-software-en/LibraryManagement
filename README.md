@@ -30,7 +30,7 @@ Outline the steps necessary to build and run your application with venv:
         + cd to path to Scripts "C:\Users\path\to\LibraryVenv\Scripts"
         + `activate.bat`
    
-1. Download Python 3.11 to run the program @ https://www.python.org/downloads/
+1. Download Python 3.11 to run the program [here](https://www.python.org/downloads/).
 1. Run the Python Installer
 1. Check the Box for "Add Python to PATH"
 In cmd:
@@ -91,22 +91,44 @@ In the Command Prompt:
 
 **Deploy LibraryManagement to PythonAnyWhere**
 
+1. Go to your Github repo settings -> Secrets and Variables -> Click on "New repository secret."
+1. Copy the production secret key that can be generated with the get_random_secret_key mentioned earlier.
+
 1. Create an [PythonAnyWhere](https://www.pythonanywhere.com/pricing/) account.
 1. Choose the Beginner account.
 1. Open a Bash console from your PythonAnyWhere Dashboard.
 1. Clone the Github repository: `git clone https://github.com/KC-software-en/LibraryManagement.git`
-1. Create a folder for new project: `mkdir Library`
-1. `cd Library`
-1. Create virtual environment: `virtualenv LibraryVenv --python=python3.11`
+1. Create a virtual environment: `mkvirtualenv --python=/usr/bin/python3.10 LibraryVenv`
+    + Note: PythonAnyWhere only has python versions up to 3.10 so use this even though the project used 3.11
+    + Note the path to the virtual environment e.g. /home/KCswe/.virtualenvs/LibraryVenv
+1. `pip install django`
 1. Import all the libraries: `python -m pip install -r requirements.txt`
-1. Go to your Github repo settings -> Secrets and Variables -> Click on "New repository secret."
-1. Copy the production secret key that can be generated with the get_random_secret_key mentioned earlier.
+    + if $ pip install -r requirements.txt gives ERROR: Could not open requirements file: [Errno 2] No such file or directory: 'requirements.txt',
+    + `find ~ -name "requirements.txt"`
+    + `cd /path/to/your/directory/containing/requirements`
+    + try installation again: `python -m pip install -r requirements.txt`
+
+1. Get these 3 pieces of information:
+    1. The path to your Django project's top folder (the folder that contains "manage.py"), e.g. /home/KCswe/LibraryManagement
+        + Print your current working directory: `pwd`
+        + Run:`ls -l`. If manage.py in the output, you're already in the top-level project folder.
+    1. The name of your project (that's the name of the folder that contains your settings.py), e.g. LibraryManagement
+    1. The name of your virtualenv, e.g. LibraryVenv
 
 1. Go to the web tab to create a web application. 
 1. Click on Create a New app.
+1. Copy your PythonAnyWhere domain name from the pop-up
 1. Select Manual Config.
-1. Select Python version.
-1. Copy your PythonAnyWhere app name from ...
+1. Select Python version 3.10 as it is the highest available (project used 3.11).
+1. Configure a WSGI file that imports your app, as a Python variable. You need to know two things:
+    1. The path to the Python file containing your web app's WSGI file. e.g. /home/KCswe/LibraryManagement/LibraryManagement
+    1. The name of the application. e.g. application = get_wsgi_application()
+    1. Follow the WSGI configuration file link under the Code section of the web tab.
+    1. Follow instructions to edit the WSGI file, save and reload at the top of the page.
+1. Go to console tab
+1. Click on bash , 
+1. Activate virtual environment: `workon LibraryVenv`    
+1. Run migrations in project directory: `python manage.py migrate`
 
 1. Open your app with the link available on your dashboard.
 
@@ -120,7 +142,7 @@ https://github.com/KC-software-en/LibraryManagement
 
 # Add a url to the LibraryManagement website
 
-LibraryManagement was deployed with PythonAnyWhere and is available [here]().
+LibraryManagement was deployed with PythonAnyWhere and is available [here](https://kcswe.pythonanywhere.com/api/v1/books).
 
 # Resources
 
